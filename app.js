@@ -8,7 +8,7 @@ let pokemonDataCache = []; // To store specific data for the first 151 Pokémon
 // Function to fetch and cache specific data for the first 151 Pokémon
 const fetchAndCachePokemonData = async () => {
   try {
-    // Fetch data for Pokémon 1 to 151 in parallel
+    // Fetch data for Pokémon 1 to 151
     const pokemonPromises = Array.from({ length: 151 }, async (_, index) => {
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${index + 1}`);
       const pokemonData = response.data;
@@ -47,7 +47,7 @@ app.get('/pokemon/:number', (req, res) => {
     if (pokemon) {
       res.json(pokemon);
     } else {
-      res.status(404).json({ error: 'Pokémon not found' });
+      res.status(404).json({ error: 'Pokémon not found, only first gen Pokémon available (1 to 151)' });
     }
   });
   
