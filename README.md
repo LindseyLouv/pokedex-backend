@@ -1,4 +1,10 @@
 # Pokedex BackEnd
+This application fetches data from PokeApi.co
+It then extracts data to only keep each Pokémon :
+- number
+- name
+- image
+- types
 
 ## Stack 
 - NodeJS
@@ -13,3 +19,11 @@
 `node app.js`
 - Access the application
 `http://localhost:3000`
+
+
+## Available routes
+First 151 Pokémons data
+`http://localhost:3000/pokemon`
+
+Specific Pokémon data by number
+`http://localhost:3000/pokemon/1` for example for the Pokémon number 1
