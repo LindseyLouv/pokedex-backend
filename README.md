@@ -1,12 +1,8 @@
 # Pokedex BackEnd
 
-This application fetches data from PokeApi.co
-It then extracts data to only keep each Pokémon :
+This application fetches data from PokeApi.co and stores it into a local JSON file to avoid the need to make multiple API calls.
 
-- number
-- name
-- image
-- types
+It then gives endpoints to use.
 
 ## Stack
 
@@ -22,6 +18,7 @@ It then extracts data to only keep each Pokémon :
 - Rename pokemonDataTemp.json to pokemonData.json in the data folder
 - Start the server
   `node app.js`
+- If it's the first time, the server needs to be restarted for the endpoints to be working (CTRL+C and rerun node app.js) - fix is being worked on
 - Access the application
   `http://localhost:3030`
 
