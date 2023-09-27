@@ -15,7 +15,6 @@ It then gives endpoints to use.
 - Clone the project
 - Install dependencies
   `npm install`
-- Rename pokemonDataTemp.json to pokemonData.json in the data folder
 - Start the server
   `node app.js`
 - Access the application (restart the server if data doesn't show)

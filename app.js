@@ -4,13 +4,16 @@ const pokemonKantoRouter = require("./routes/pokemonKanto");
 const pokemonJohtoRouter = require("./routes/pokemonJohto");
 const pokemonHoennRouter = require("./routes/pokemonHoenn");
 const pokemonDetailRouter = require("./routes/pokemonDetail");
-const { testPokemonData } = require("./utils/pokemonUtils");
+const { testPokemonData, cacheData } = require("./utils/pokemonUtils");
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3030;
 
-// Test if data exists, if not or incomplete, fetch data from PokéAPI
+// Test if data exists, if not or incomplete, fetch data from PokéAPI and store data into cache
 testPokemonData();
+
+// Cache the data
+cacheData();
 
 // ---- ROUTES ----- //
 

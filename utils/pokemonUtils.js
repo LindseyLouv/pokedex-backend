@@ -56,9 +56,9 @@ const fetchAndStorePokemonData = async (pokemonNumber) => {
       }
     );
     // Wait for all requests to complete
-    pokemonDataCache = await Promise.all(pokemonPromises);
+    pokemonData = await Promise.all(pokemonPromises);
     // Save the data to a JSON file
-    fs.writeFileSync("data/pokemonData.json", JSON.stringify(pokemonDataCache));
+    fs.writeFileSync("data/pokemonData.json", JSON.stringify(pokemonData));
     console.log("Data saved to pokemonData.json");
   } catch (error) {
     console.error("Could not fetch data from the PokeAPI", error);
@@ -66,22 +66,26 @@ const fetchAndStorePokemonData = async (pokemonNumber) => {
 };
 
 const testPokemonData = () => {
-  let pokemonDataCache = []; // To store pokemon data
   let pokemonNumber = 386; // The last pokémon we want to get info (national pokédex number)
-
-  pokemonDataCache = loadPokemonDataFromJSON(); // Load data from pokemonData
+  let pokemonDataCache = loadPokemonDataFromJSON(); // Load data from pokemonData
   console.log(
     `There is data for ${pokemonDataCache.length} pokémon out of ${pokemonNumber} expected.`
   );
 
-  // Test if pokemonDataCache is empty or if the number of pokemon isn't corresponding to pokemonNumber
+  // Test if pokemonData is empty or if the number of pokemon isn't corresponding to pokemonNumber
   // So we only fetch data once and limit API call to PokéApi
-  if (pokemonDataCache == [] || pokemonDataCache.length !== pokemonNumber) {
+  if (pokemonDataCache == null || pokemonDataCache.length !== pokemonNumber) {
     fetchAndStorePokemonData(pokemonNumber);
     console.log("Data fetched from PokéAPI");
-    pokemonDataCache = loadPokemonDataFromJSON();
-    console.log("Data stored to pokemonDataCache");
+    pokemonDataCache = loadPokemonDataFromJSON(); // Load data from pokemonData
   }
+};
+
+const pokemonDataCache = [];
+const cacheData = () => {
+  const newCache = loadPokemonDataFromJSON();
+  pokemonDataCache.length = 0;
+  pokemonDataCache.push(...newCache);
 };
 
 module.exports = {
@@ -90,4 +94,6 @@ module.exports = {
   loadPokemonDataFromJSON,
   fetchAndStorePokemonData,
   testPokemonData,
+  cacheData,
+  pokemonDataCache,
 };
