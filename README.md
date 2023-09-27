@@ -6,8 +6,8 @@ It then gives endpoints to use.
 
 ## Stack
 
-- NodeJS
-- Express
+- Node.js
+- Express.js
 - Axios
 
 ## How to use
@@ -15,11 +15,9 @@ It then gives endpoints to use.
 - Clone the project
 - Install dependencies
   `npm install`
-- Rename pokemonDataTemp.json to pokemonData.json in the data folder
 - Start the server
   `node app.js`
-- If it's the first time, the server needs to be restarted for the endpoints to be working (CTRL+C and rerun node app.js) - fix is being worked on
-- Access the application
+- Access the application (restart the server if data doesn't show)
   `http://localhost:3030`
 
 ## Available routes
