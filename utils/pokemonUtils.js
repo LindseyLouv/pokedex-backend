@@ -60,6 +60,8 @@ const fetchAndStorePokemonData = async (pokemonNumber) => {
     // Save the data to a JSON file
     fs.writeFileSync("data/pokemonData.json", JSON.stringify(pokemonData));
     console.log("Data saved to pokemonData.json");
+    cacheData();
+    console.log("Data cached");
   } catch (error) {
     console.error("Could not fetch data from the PokeAPI", error);
   }
