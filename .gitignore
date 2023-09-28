@@ -38,3 +38,7 @@ Thumbs.db
 
 # Datafile
 data/pokemonData.json
+
+# Environment variables
+.env
+.env.test
