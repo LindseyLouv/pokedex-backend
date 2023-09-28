@@ -1,6 +1,6 @@
 # Pokedex BackEnd
 
-This application fetches data from PokeApi.co and stores it into a local JSON file to avoid the need to make multiple API calls.
+This application fetches data from PokeApi.co and stores it into a Pokémon database.
 
 It then gives endpoints to use.
 
@@ -16,6 +16,7 @@ It then gives endpoints to use.
 - Install dependencies
   `npm install`
 - Rename pokemonDataTemp.json to pokemonData.json
+- Rename .env.temp to .env and fill host, user and password data
 - Start the server
   `node app.js`
 - Access the application (restart the server if data doesn't show)
